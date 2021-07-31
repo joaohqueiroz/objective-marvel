@@ -22,7 +22,6 @@ export const Name = styled.span`
     font-family: "PT Sans Caption";
     font-weight: bold;
     font-size: 1.4rem;
-    color: #555555;
 `;
 
 export const Info = styled.div`
