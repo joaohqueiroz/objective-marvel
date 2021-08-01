@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
+import { ReactComponent as Search } from "../../assets/images/search.svg";
+import Item from "../../components/Item";
 import Navfooter from "../../components/Navfooter";
 import api from "../../services/api";
 
@@ -35,8 +36,21 @@ function Home() {
         <S.Title><span>Busca de personagens</span></S.Title>
         <S.Search>
             <p>Nome do personagem</p>
-            <input type="text" placeholder="Search"/>
+            <S.InputWrapper>
+              <input type="text" placeholder="Search"/>
+              <button><Search/></button>
+            </S.InputWrapper>
         </S.Search>
+        <S.ListTitle>
+          <span>Personagem</span>
+          <span className="hide">Séries</span>
+          <span className="hide">Eventos</span>
+        </S.ListTitle>
+        <S.ItemsList>
+          <Item />
+          <Item />
+          <Item />
+        </S.ItemsList>
         {/* {chars.length > 0 ? <img src={`${chars[0].thumbnail.path}/portrait_small.${chars[0].thumbnail.extension}`} alt="" /> : null} */}
       </S.Main>
       <Navfooter />
