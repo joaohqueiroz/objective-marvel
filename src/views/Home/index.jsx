@@ -8,6 +8,9 @@ import * as S from "./styles";
 
 function Home() {
   const [chars, setChars] = useState([]);
+  const [offset, setOffset] = useState(0);
+  const [total, setTotal] = useState(0);
+  const [name, setName] = useState("");
 
   async function searchCharacters() {
     const publicKey = "42b5503095073dcbe5cda3d391924944";
@@ -16,15 +19,23 @@ function Home() {
       params: {
         apikey: publicKey,
         limit: 10,
+        offset,
+        nameStartsWith: name ? name : null,
       },
     });
 
+    setTotal(data.data.total);
     setChars(data.data.results);
   }
 
   useEffect(() => {
     searchCharacters();
-  }, []);
+  }, [name, offset]);
+
+  function handleName() {
+    const newName = document.getElementById("name").value;
+    setName(newName);
+  }
 
   return (
     <S.Container>
@@ -35,8 +46,13 @@ function Home() {
         <S.Search>
           <p>Nome do personagem</p>
           <S.InputWrapper>
-            <input type="text" placeholder="Search" />
-            <button>
+            <input
+              type="text"
+              placeholder="Search"
+              autocomplete="off"
+              id="name"
+            />
+            <button onClick={handleName}>
               <Search />
             </button>
           </S.InputWrapper>
@@ -48,12 +64,16 @@ function Home() {
         </S.ListTitle>
         <S.ItemsList>
           {chars.map((item, index) => {
-            console.log(item)
-            return <Item char={item} key={index}/>;
+            return <Item char={item} key={index} />;
           })}
         </S.ItemsList>
       </S.Main>
-      <Navfooter />
+      <Navfooter
+        limit={10}
+        total={total}
+        offset={offset}
+        setOffset={setOffset}
+      />
     </S.Container>
   );
 }
