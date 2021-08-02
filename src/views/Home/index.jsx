@@ -50,7 +50,7 @@ function Home() {
             <input
               type="text"
               placeholder="Search"
-              autocomplete="off"
+              autoComplete="off"
               id="name"
             />
             <button onClick={handleName}>

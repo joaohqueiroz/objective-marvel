@@ -5,12 +5,12 @@ import {
   HiChevronDoubleLeft,
   HiChevronDoubleRight,
 } from "react-icons/hi";
+import useWindowSize from "../../services/useWindowSize";
 import * as S from "./styles";
 
-const MAX_ITEMS = 5;
-const MAX_LEFT = (MAX_ITEMS - 1) / 2;
-
 function Navfooter({ limit, total, offset, setOffset }) {
+  const MAX_ITEMS = useWindowSize().width > 600 ? 5 : 3;
+  const MAX_LEFT = (MAX_ITEMS - 1) / 2;
   const current = offset ? offset / limit + 1 : 1;
   const pages = Math.ceil(total / limit);
   const maxFirst = Math.max(pages - (MAX_ITEMS - 1), 1);
@@ -39,7 +39,7 @@ function Navfooter({ limit, total, offset, setOffset }) {
             <S.ListItem key={page}>
               <button
                 onClick={() => onPageChange(page - 1)}
-                className={page === current && "selected"}
+                className={page === current ? "selected" : ""}
               >
                 <span>{page}</span>
               </button>
