@@ -10,7 +10,7 @@ function Home() {
   const [chars, setChars] = useState([]);
 
   async function searchCharacters() {
-    const publicKey = "42b5503095073dcbe5cda3d391924944"
+    const publicKey = "42b5503095073dcbe5cda3d391924944";
 
     const { data } = await api.get("characters", {
       params: {
@@ -26,20 +26,20 @@ function Home() {
     searchCharacters();
   }, []);
 
-  useEffect(() => {
-    console.log(chars);
-  }, [chars]);
-
   return (
     <S.Container>
       <S.Main>
-        <S.Title><span>Busca de personagens</span></S.Title>
+        <S.Title>
+          <span>Busca de personagens</span>
+        </S.Title>
         <S.Search>
-            <p>Nome do personagem</p>
-            <S.InputWrapper>
-              <input type="text" placeholder="Search"/>
-              <button><Search/></button>
-            </S.InputWrapper>
+          <p>Nome do personagem</p>
+          <S.InputWrapper>
+            <input type="text" placeholder="Search" />
+            <button>
+              <Search />
+            </button>
+          </S.InputWrapper>
         </S.Search>
         <S.ListTitle>
           <span>Personagem</span>
@@ -47,11 +47,11 @@ function Home() {
           <span className="hide">Eventos</span>
         </S.ListTitle>
         <S.ItemsList>
-          <Item />
-          <Item />
-          <Item />
+          {chars.map((item, index) => {
+            console.log(item)
+            return <Item char={item} key={index}/>;
+          })}
         </S.ItemsList>
-        {/* {chars.length > 0 ? <img src={`${chars[0].thumbnail.path}/portrait_small.${chars[0].thumbnail.extension}`} alt="" /> : null} */}
       </S.Main>
       <Navfooter />
     </S.Container>

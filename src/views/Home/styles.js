@@ -11,7 +11,6 @@ export const Container = styled.div`
 `;
 
 export const Main = styled.div`
-    height: 100%;
     width: 100%;
 
     padding: 4rem 11.3rem 1.6rem;
@@ -111,7 +110,7 @@ export const ListTitle = styled.div`
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 800px) {
         span.hide {
             display: none;
         }
@@ -119,5 +118,4 @@ export const ListTitle = styled.div`
 `;
 
 export const ItemsList = styled.div`
-    overflow-y: scroll;
 `;
