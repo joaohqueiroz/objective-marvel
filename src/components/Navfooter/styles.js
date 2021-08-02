@@ -47,3 +47,19 @@ export const ListItem = styled.li`
         }
     }
 `;
+
+export const ActionItem = styled.li`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        font-size: 14px;
+        color: #555555;
+        cursor: pointer;
+
+        :hover {
+            color: #5DAFFF;
+        }
+    }
+`;

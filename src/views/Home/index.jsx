@@ -34,6 +34,7 @@ function Home() {
 
   function handleName() {
     const newName = document.getElementById("name").value;
+    setOffset(0);
     setName(newName);
   }
 
@@ -57,16 +58,22 @@ function Home() {
             </button>
           </S.InputWrapper>
         </S.Search>
-        <S.ListTitle>
-          <span>Personagem</span>
-          <span className="hide">Séries</span>
-          <span className="hide">Eventos</span>
-        </S.ListTitle>
-        <S.ItemsList>
-          {chars.map((item, index) => {
-            return <Item char={item} key={index} />;
-          })}
-        </S.ItemsList>
+        {
+          chars.length > 0 ? (
+            <>
+              <S.ListTitle>
+                <span>Personagem</span>
+                <span className="hide">Séries</span>
+                <span className="hide">Eventos</span>
+              </S.ListTitle>
+              <S.ItemsList>
+                {chars.map((item, index) => {
+                  return <Item char={item} key={index} />;
+                })}
+              </S.ItemsList>
+            </>
+          )
+        : <S.Empty>Nenhum resultado foi encontrado</S.Empty>}
       </S.Main>
       <Navfooter
         limit={10}

@@ -92,7 +92,7 @@ export const InputWrapper = styled.div`
         justify-content: center;
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 800px) {
         width: 100%;
     }
 `;
@@ -118,4 +118,21 @@ export const ListTitle = styled.div`
 `;
 
 export const ItemsList = styled.div`
+`;
+
+export const Empty = styled.div`
+    font-family: 'PT Sans Caption';
+    font-weight: bold;
+    font-size: 32px;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media only screen and (max-width: 800px) {
+        font-size: 24px;
+        margin-bottom: 2.4rem;
+    }
 `;
