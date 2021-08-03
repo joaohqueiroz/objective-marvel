@@ -14,8 +14,6 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ## Pages
-- Home
--- Busca e listagem de heróis.
+- Home: Busca e listagem de heróis.
   
-- Details
--- Detalhes sobre o herói escolhido.
+- Details: Detalhes sobre o herói escolhido.
