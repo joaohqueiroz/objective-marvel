@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as Search } from "../../assets/images/search.svg";
 import Item from "../../components/Item";
 import Navfooter from "../../components/Navfooter";
@@ -58,22 +59,26 @@ function Home() {
             </button>
           </S.InputWrapper>
         </S.Search>
-        {
-          chars.length > 0 ? (
-            <>
-              <S.ListTitle>
-                <span>Personagem</span>
-                <span className="hide">Séries</span>
-                <span className="hide">Eventos</span>
-              </S.ListTitle>
-              <S.ItemsList>
-                {chars.map((item, index) => {
-                  return <Item char={item} key={index} />;
-                })}
-              </S.ItemsList>
-            </>
-          )
-        : <S.Empty>Nenhum resultado foi encontrado</S.Empty>}
+        {chars.length > 0 ? (
+          <>
+            <S.ListTitle>
+              <span>Personagem</span>
+              <span className="hide">Séries</span>
+              <span className="hide">Eventos</span>
+            </S.ListTitle>
+            <S.ItemsList>
+              {chars.map((item, index) => {
+                return (
+                  <Link to={`/details/${item.id}`} key={item.id}>
+                    <Item char={item} key={index} />
+                  </Link>
+                );
+              })}
+            </S.ItemsList>
+          </>
+        ) : (
+          <S.Empty>Nenhum resultado foi encontrado</S.Empty>
+        )}
       </S.Main>
       <Navfooter
         limit={10}

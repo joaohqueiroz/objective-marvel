@@ -107,8 +107,6 @@ export const ListTitle = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
 
     @media screen and (max-width: 800px) {
         span.hide {
@@ -118,6 +116,10 @@ export const ListTitle = styled.div`
 `;
 
 export const ItemsList = styled.div`
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
 `;
 
 export const Empty = styled.div`
