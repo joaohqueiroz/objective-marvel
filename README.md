@@ -15,7 +15,7 @@ You will also see any lint errors in the console.
 
 ## Pages
 - Home
-  Busca e listagem de heróis.
+-- Busca e listagem de heróis.
   
 - Details
-  Detalhes sobre o herói escolhido.
+-- Detalhes sobre o herói escolhido.
