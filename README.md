@@ -1,6 +1,5 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Objective-Marvel
+Aplicação criada como avaliação para a vaga de desenvolvedor front-end React na Objective
 
 ## Available Scripts
 
@@ -14,3 +13,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+## Pages
+- Home
+  Busca e listagem de heróis.
+  
+- Details
+  Detalhes sobre o herói escolhido.
